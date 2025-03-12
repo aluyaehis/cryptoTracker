@@ -83,7 +83,7 @@
 // });
 
 // export default Index;
-
+import 'react-native-reanimated';
 import { Text, View, StyleSheet, FlatList, SafeAreaView } from 'react-native';
 import ListItem from '@/components/ListItem';
 import { SAMPLE_DATA } from '@/assets/data/sampleData';
@@ -92,10 +92,7 @@ import {
   BottomSheetModal,
   BottomSheetModalProvider,
 } from '@gorhom/bottom-sheet';
-//ref
-const bottomSheetModalRef = useRef(null);
-//variable;
-const snapPoints = useMemo(() => ['50%'], []);
+
 
 const ListHeader = () => (
   <>
@@ -106,7 +103,11 @@ const ListHeader = () => (
   </>
 );
 
-const App = () => {
+const Index = () => {
+  //ref
+const bottomSheetModalRef = useRef(null);
+//variable;
+const snapPoints = useMemo(() => ['50%'], []);
   return (
     <BottomSheetModalProvider>
       <SafeAreaView style={styles.container}>
@@ -114,7 +115,6 @@ const App = () => {
           keyExtractor={(item) => item.id}
           data={SAMPLE_DATA}
           renderItem={({ item }) => {
-            console.log('Image URL:', item.image);
             return (
               <ListItem
                 name={item.name}
@@ -167,4 +167,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Index;
